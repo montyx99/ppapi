@@ -1,4 +1,4 @@
-# Padawan Project
+# Pproject Tutorial
 ## MongoDB Atlas
 #### Import backup
 mongoimport --uri "mongodb+srv://ppsiteadmin:password@cluster0-olrgl.azure.mongodb.net/pproject?retryWrites=true&w=majority" --collection discordUsers --drop --file ppdb_16092019.json
@@ -25,7 +25,7 @@ Check wether the installation is successful:
 #### Generate the tutorial project
 - Navigate to a folder where you have RW permissions
 - The project will be created in a new folder with the project name. So do not necessary to create an empty folder for the new project
-- Use the `rails new tutorial --skip-active-record` command to create the project
+- Use the `rails new tutorial --api --skip-active-record` command to create the project
 - In some cases the sqlite3 integration can cause an issue during the deployment.
   - In the case above use the following command, `gem install sqlite3 --platform=ruby -- --with-sqlite3-dir=<PATH>`. Where the PATH is a preferred folder
   - navigate to the newly created folder and run `bundle install` to install the necessary gem packages
@@ -54,15 +54,15 @@ The Compass is a remote monitoring tool for the MongoDB databases and clusters
 Create a copy about the default.mongoid.yml in the `/app/project` folder, and name it to mongoid.yml
 Edit your brand new mongoid.yml file:
 ```
-database: tutorial_<finastra_id>
+database: tutorial_<tutorial_id>
 hosts:
         - Cluster0-shard-0/cluster0-shard-00-00-olrgl.azure.mongodb.net:27017
         - cluster0-shard-00-01-olrgl.azure.mongodb.net:27017
         - cluster0-shard-00-02-olrgl.azure.mongodb.net:27017
-user: <finastra_id>
-password: '<finastra_id>Pass'
+user: <tutorial_id>
+password: '<tutorial_id>Pass'
 roles:
-        - '<finastra_id>TutorialUser'
+        - '<tutorial_id>TutorialUser'
 ```
 **IMPORTANT!** The mongoid.yml is untracked with git. Please **DO NOT MODIFY** the .gitignore file, and push the mongoid.yml file ever!
 If you'd like to create a brand new mongoid config file, run `rails g mongoid:config` from the terminal.
@@ -78,11 +78,8 @@ Run the following command from the terminal:
 Check what's happened in the file structure:
   - `app/assets/stylesheets`: new scss files
   - `app/controllers`: new controller named `todos_controller.rb`
-  - `app/helpers`: new helper class
   - `app/models`: new Todo model class
-  - `app/views`: new folder with html erb templates
   - `test/controllers`: test file for the new controller
-  - `test/fixtures`: new dataset emulation
   - `test/models`: new model template
   - `test/system`: the test main script
 
@@ -92,7 +89,3 @@ Open the http://localhost:3000/todos in a browser.
 In the `public` folder you can find the basic application describers, and JS files generated once in case of every app.
 
 Good luck with the learning of Ruby, I hope this tutorial helped you to create a development environment for your self-learning.
-
-If you have any question, please contact me. My email address is below.
-
-_Author: [Arpad T Marton](mailto:arpad.marton@finastra.com)_
